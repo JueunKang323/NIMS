@@ -6,10 +6,11 @@
 			function CreateDate(){ 
 				const ndate = new Date(); 
 				const Month = ndate.getMonth() + 1; 
-				const Year  = ndate.getFullYear(); 
+				const Year  = ndate.getFullYear();
 				const Day  = ndate.getDate(); 
 				var selectYear = document.cdate.year; 
-				for ( var yr = 2012 ; yr <= Year; yr++) { 
+				var iy = 0;
+				for ( var yr = 2012 ; yr <= Year; yr++) {
 					var objOption = document.createElement("option"); 
 					objOption.text=yr; 
 					objOption.value=yr; 
@@ -29,29 +30,29 @@
 					objOption.text=dy;
 					objOption.value=dy;
 					selectDay.options.add(objOption);
-				} 
+				}
 				
-				var target = document.getElementById('day'); 
-				target.options[Day-1].selected = true;
+				var target = document.getElementById('day');
+				target.options[Day-1].selected = true;  
 				document.getElementById('month').options[Month-1].selected = true;
 				document.getElementById('year').options[iy-1].selected = true;
-
-			function ChangeMonth(){  
+			}
+			function ChangeMonth(){ 
 				const month = document.getElementById("month").value;
 				const year  = document.getElementById("year").value; 
-				const lastday = new Date(year, month, 0).getDate();
+				const lastday = new Date(year, month, 0).getDate(); 
 				var selectDay = document.getElementById("day");
-				selectDay.options.length = 0; 
+				selectDay.options.length = 0;
 				for (dy = 1 ; dy <= lastday ; dy ++) { 
-					var objOption = document.createElement("option"); 
-					objOption.text=dy;
+					var objOption = document.createElement("option");
+					objOption.text=dy; 
 					objOption.value=dy; 
 					selectDay.options.add(objOption); 
 				}
 			}
 			function ChangeYear(){
-				const year  = document.getElementById("year").value; 
-				var selectMonth = document.getElementById("month");
+				const year  = document.getElementById("year").value;
+				var selectMonth = document.getElementById("month"); 
 				selectMonth.options.length = 0;
 				for (mo = 1 ; mo <= 12 ; mo ++) {
 					var objOption = document.createElement("option");
@@ -118,5 +119,6 @@
 			날짜:
 		</p>
 		</form>
+
 	</body>
 </html>
